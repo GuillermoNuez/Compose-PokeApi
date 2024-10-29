@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">StiboDX Coding challenge</string>
+    <string name="enter_pokemon_name">Enter pokémon name</string>
+    <string name="error_no_connection">No internet connection.\nPlease check your settings.</string>
+    <string name="error_generic">An unexpected error occurred.\nPlease try again.</string>
+    <string name="button_retry">Retry</string>
+    <string name="clear_text">Clear text</string>
+    <string name="button_refresh">Refresh</string>
+    <string name="button_search">Search</string>
+    <string name="clear_Text_ContentDescription">Retry</string>
+    <string name="pokemon_Sprite">Pokémon Sprite</string>
+    <string name="previousPage">Previous Page</string>
+    <string name="nextPage">Next Page</string>
+    <string name="pokemon_not_found">No Pokémon found\nwith this name or ID</string>
+    <string name="pokemon_id">ID : #</string>
+    <string name="height">Height: </string>
+    <string name="weight">Weight : </string>
+    <string name="base_experience">Base experience :</string>
+    <string name="pokemon_type">Type : </string>
+    <string name="pokemon_types">Types : </string>
+    <string name="pokemon_moves">Moves </string>
+
+    <string name="collapse">Collapse</string>
+    <string name="expand">Expand</string>
+</resources>
