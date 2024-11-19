@@ -107,9 +107,7 @@ class MainActivity : ComponentActivity() {
         val latoFont = FontFamily(Font(R.font.lato_regular))
         val latoBoldFont = FontFamily(Font(R.font.lato_bold))
 
-        var name by remember {
-            mutableStateOf("")
-        }
+        val name = viewModel.name.collectAsState()
 
         var offset by remember {
             mutableIntStateOf(0)
@@ -133,18 +131,18 @@ class MainActivity : ComponentActivity() {
         }
 
         fun searchEvent() {
-            if (name.isNotBlank()) {
+            if (name.value.isNotBlank()) {
                 showPagination = false
                 offset = 0
-                viewModel.fetchPokemonByName(name.lowercase())
+                viewModel.fetchPokemonByName(name.value.lowercase())
 
             } else {
                 searchAll()
             }
         }
 
-        LaunchedEffect(name) {
-            if (name.isBlank()) {
+        LaunchedEffect(name.value) {
+            if (name.value.isBlank()) {
                 searchEvent()
             }
         }
@@ -182,8 +180,8 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(horizontal = 20.dp)
                     ) {
                         OutlinedTextField(
-                            value = name,
-                            onValueChange = { text -> name = text },
+                            value = name.value,
+                            onValueChange = { viewModel.onNameChange(it) },
                             textStyle = TextStyle(fontFamily = latoFont, fontSize = 20.sp),
                             placeholder = {
                                 Text(
@@ -193,8 +191,8 @@ class MainActivity : ComponentActivity() {
                                 )
                             },
                             trailingIcon = {
-                                if (name.isNotEmpty()) {
-                                    IconButton(onClick = { name = "" }) {
+                                if (name.value.isNotEmpty()) {
+                                    IconButton(onClick = { viewModel.onNameChange("")}) {
                                         Icon(
                                             imageVector = Icons.Filled.Clear,
                                             contentDescription = stringResource(id = R.string.clear_Text_ContentDescription)
@@ -226,7 +224,7 @@ class MainActivity : ComponentActivity() {
                         Spacer(modifier = Modifier.size(16.dp))
                         Button(
                             onClick = {
-                                if (name.isNotBlank()) {
+                                if (name.value.isNotBlank()) {
                                     searchEvent()
                                 }
                             },

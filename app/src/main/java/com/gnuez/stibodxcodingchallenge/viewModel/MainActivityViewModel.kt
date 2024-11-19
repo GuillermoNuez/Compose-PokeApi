@@ -15,6 +15,14 @@ import kotlin.coroutines.cancellation.CancellationException
 class MainActivityViewModel : ViewModel() {
     private val repository: PokemonRepository = PokemonRepositoryImpl()
 
+
+    private val _name = MutableStateFlow("")
+    val name: StateFlow<String> = _name
+
+    fun onNameChange(newName: String) {
+        _name.value = newName
+    }
+
     private val _pokemonList = MutableStateFlow<List<PokemonData>>(emptyList())
     val pokemonList: StateFlow<List<PokemonData>> = _pokemonList
 
