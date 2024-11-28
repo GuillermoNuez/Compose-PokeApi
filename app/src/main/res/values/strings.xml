@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StiboDX Coding challenge</string>
+    <string name="app_name">PokiApi App</string>
     <string name="enter_pokemon_name">Enter pokémon name</string>
     <string name="error_no_connection">No internet connection.\nPlease check your settings.</string>
     <string name="error_generic">An unexpected error occurred.\nPlease try again.</string>

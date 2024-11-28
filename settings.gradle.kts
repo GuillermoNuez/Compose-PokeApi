@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "StiboDX Coding challenge"
+rootProject.name = "PokeApi App"
 include(":app")
  
