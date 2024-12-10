@@ -68,6 +68,8 @@ dependencies {
     implementation(libs.retrofit2.converter.gson)
     implementation(libs.coil.compose)
     implementation(libs.ui.test.junit4.android)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
 
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.test.manifest)

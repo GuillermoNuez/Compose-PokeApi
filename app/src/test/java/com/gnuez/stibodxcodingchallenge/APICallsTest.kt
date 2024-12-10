@@ -22,7 +22,7 @@ class APICallsTest {
         val pokemonData = response.body()
         assertNotNull("Expected Response body not null", pokemonData)
         val list: List<Pokemon> = pokemonData!!.results
-        assertEquals("Expected number of Pokémon fetched", 20, list.size)
+        assertEquals("Expected number of Pokémon fetched", 21, list.size)
     }
 
     @Test

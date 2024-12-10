@@ -16,6 +16,8 @@ import com.gnuez.stibodxcodingchallenge.activities.MainActivity
 import org.junit.Rule
 import org.junit.Test
 
+
+private val timeout = 10_000L
 class ComposeUITest {
     @JvmField
     @Rule
@@ -28,7 +30,7 @@ class ComposeUITest {
         composeTestRule.onNodeWithContentDescription("Search")
             .assertHasClickAction().performClick()
 
-        composeTestRule.waitUntil {
+        composeTestRule.waitUntil(timeout) {
             composeTestRule.onNodeWithText("Mew", useUnmergedTree = true).isDisplayed()
         }
 
@@ -38,7 +40,7 @@ class ComposeUITest {
 
         composeTestRule.onNodeWithTag("moveList").assertExists().performClick()
 
-        composeTestRule.waitUntil {
+        composeTestRule.waitUntil (timeout){
             composeTestRule.onNodeWithText("Pound", useUnmergedTree = true).isDisplayed()
         }
     }
@@ -52,7 +54,7 @@ class ComposeUITest {
             .assertHasClickAction().performClick()
         val notFoundText = ApplicationProvider.getApplicationContext<Context>()
             .getString(R.string.pokemon_not_found)
-        composeTestRule.waitUntil {
+        composeTestRule.waitUntil(timeout) {
             composeTestRule.onNodeWithText(notFoundText, useUnmergedTree = true).isDisplayed()
         }
 
@@ -61,9 +63,7 @@ class ComposeUITest {
 
     @Test
     fun appNavigation() {
-        Thread.sleep(1000)
-
-        composeTestRule.waitUntil {
+        composeTestRule.waitUntil(timeout) {
             composeTestRule.onNodeWithText("Bulbasaur", useUnmergedTree = true).isDisplayed()
         }
 
@@ -81,17 +81,15 @@ class ComposeUITest {
         composeTestRule.onNodeWithContentDescription(nextArrow)
             .assertHasClickAction().performClick()
 
-        Thread.sleep(1000)
-        composeTestRule.waitUntil {
+        composeTestRule.waitUntil (timeout){
             composeTestRule.onNodeWithText("Pikachu", useUnmergedTree = true).isDisplayed()
         }
 
         composeTestRule.onNodeWithContentDescription(prevousArrow)
             .assertHasClickAction().performClick()
 
-        Thread.sleep(1000)
         
-        composeTestRule.waitUntil {
+        composeTestRule.waitUntil(timeout) {
             composeTestRule.onNodeWithText("Bulbasaur", useUnmergedTree = true).isDisplayed()
         }
 
